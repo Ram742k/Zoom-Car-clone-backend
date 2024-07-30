@@ -10,7 +10,7 @@ const vehicleController = {
             const { title, price, offprice, transmission, fueltype, seat, cartype, rating, km, location } = req.body;
             let images = [];
             if (req.files) {
-                images = req.files.map(file => `http://localhost:${process.env.PORT || 5000}/uploads/${file.filename}`);
+                images = req.files.map(file => `https://zoom-car-clone-backend.onrender.com/uploads/${file.filename}`);
                 console.log('Image URLs:', images); // Log image URLs
             }
             const vehicle = new Vehicle({
