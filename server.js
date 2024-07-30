@@ -13,10 +13,16 @@ const hosterRoutes = require('./routes/hosterRoutes');
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-    origin: 'http://localhost:5174', // Adjust to match your frontend URL
-    credentials: true
-}));
+const corsOptions = {
+  origin: 'https://cute-sawine-ff688a.netlify.app',
+  methods: 'GET,POST,PUT,DELETE,OPTIONS',
+  allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token'],
+  credentials: true, // Allow cookies to be sent
+};
+
+
+
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 mongoose.connect('mongodb+srv://ramsundaram370:Ram12345@cluster0.1novklf.mongodb.net/zoomcar')
