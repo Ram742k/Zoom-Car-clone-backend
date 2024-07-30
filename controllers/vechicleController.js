@@ -50,7 +50,7 @@ const vehicleController = {
             const { title, price, offprice, transmission, fueltype, seat, cartype, rating, km, location } = req.body;
             let images = [];
             if (req.files) {
-                images = req.files.map(file => `https://zoom-car-clone-backend.onrender.com/uploads/uploads/${file.filename}`);
+                images = req.files.map(file => `https://zoom-car-clone-backend.onrender.com/uploads/${file.filename}`);
             }
             const updatedVehicle = await Vehicle.findByIdAndUpdate(req.params.id, {
                 images,
